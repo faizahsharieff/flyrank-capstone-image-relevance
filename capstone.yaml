@@ -1,0 +1,28 @@
+# FlyRank capstone evaluator manifest
+# Start PostgreSQL and apply migrations using the README setup steps first.
+run: python -m uvicorn app.main:app --reload
+seed: python -m scripts.seed
+test: python -m pytest -q
+base_url: http://127.0.0.1:8000
+endpoints:
+  health: GET /health
+  process_images: POST /jobs/process-images
+  job_status: GET /jobs/{job_id}
+  create_post: POST /posts
+  match_images: GET /posts/{post_id}/images
+  inspect_suggestion: GET /suggestions/{suggestion_id}
+  approve_suggestion: POST /suggestions/{suggestion_id}/approve
+  reject_suggestion: POST /suggestions/{suggestion_id}/reject
+
+project:
+  title: AI Image Understanding & Content Matching Engine
+  language: Python 3.11+
+  status: partial-live-verification
+
+verification:
+  setup: README.md
+  evaluation: python -m scripts.evaluate
+  tests_result: 68 passed, 1 warning
+  processed_images: 21
+  failed_images: 29
+  top1_precision: 0.20
