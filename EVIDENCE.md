@@ -1,6 +1,7 @@
 # FlyRank Capstone Evidence
 
-**Verification date:** 2026-10-19
+**Verification date:** 2026-10-19 (and a screenshot from 2026-09-30)
+
 **Scope:** Local application, PostgreSQL, stored records, and automated tests. No Gemini request was made and no image job or embedding generation was triggered during this verification.
 
 ## Runtime and database
